@@ -1,0 +1,53 @@
+table ChildTable {
+  id: uint;
+}
+
+struct ChildStruct {
+  id: uint;
+}
+
+union ChildUnion {
+  ChildTable
+}
+
+enum ChildEnum: ubyte {
+  Ok,
+  Error
+}
+
+table TestTable {
+  a_table: ChildTable;
+  a_struct: ChildStruct;
+  a_union: ChildUnion;
+  a_vector: [ubyte];
+  a_string: string;
+  a_enum: ChildEnum;
+  a_scalar: ubyte;
+}
+
+struct TestStruct {
+  // a_table: ChildTable;
+  a_struct: ChildStruct;
+  // a_union: ChildUnion;
+  // a_vector: [ubyte];
+  // a_string: string;
+  a_enum: ChildEnum;
+  a_scalar: ubyte;
+}
+
+union TestUnion {
+  ChildTable,
+  ChildStruct
+}
+
+table TestVector {
+  a_table: [ChildTable];
+  a_struct: [ChildStruct];
+  a_union: [ChildUnion];
+  // a_vector: [[ubyte]];
+  a_string: [string];
+  a_enum: [ChildEnum];
+  a_scalar: [ubyte];
+}
+
+root_type TestUnion;
